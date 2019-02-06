@@ -7,27 +7,23 @@ source("code/functions.R")
 
 
 ### Problem 2 ----
-fibonacci = function(n){
-  lookup = integer(n + 1 )
-  
-  if (n == 1) {return(1)}
-  if (n == 2) {return(2)}
-  
-  lookup[1] = 1
-  lookup[2] = 2
-  
-  if (lookup[n - 1] == 0) {
-    lookup[n - 1] = fibonacci(n - 1)
+#Better solution
+
+n = 1
+fib = 1
+nums = integer()
+while (fib < 4000000) {
+  if (n > 2) {
+    fib = nums[n - 1] + nums[n - 2]
+  } else if (n == 1) {
+    fib = 1
+  } else if (n == 2) {
+    fib = 2
   }
   
-  if (lookup[n - 2] == 0) {
-    lookup[n - 2] = fibonacci(n - 2)
-  }
-  return(lookup[n - 1] + lookup[n - 2])
+  nums = c(nums, fib)
+  n = n + 1
 }
 
-fibonacci(1)
-fibonacci(2)
-fibonacci(3)
-fibonacci(4)
-print(fibonacci(100))
+even = as_tibble(nums) %>% filter(. %% 2 == 0)
+sum(even)
