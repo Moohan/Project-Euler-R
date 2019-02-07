@@ -34,3 +34,20 @@ fibonacci = function(n, lookup = NULL){
   }
   return(lookup[n - 1] + lookup[n - 2])
 }
+
+##For Problem 3
+#It returns a list of prime factors for a number n
+#It needs to be supplied with a list of primes to work with
+getPrimeFactors = function(n, primes) {
+  prime_factors = integer()
+  
+  for (prime in primes) {
+    if (prime <= n) {
+      while (n %% prime == 0) {
+        prime_factors = c(prime_factors, prime)
+        n = n / prime
+      }
+    }
+  }
+  return(prime_factors)
+}

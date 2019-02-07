@@ -2,4 +2,4 @@
 if (!require(pacman)) install.packages("pacman")
 
 #Add all packages here
-pacman::p_load('readr', 'tidyr', 'tictoc', 'dplyr')
+pacman::p_load('readr', 'tidyr', 'dplyr', 'stringr')
