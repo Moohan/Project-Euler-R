@@ -55,3 +55,38 @@ getPrimeFactors = function(n, primes) {
     }
     return(prime_factors)
 }
+
+##For Problem 7
+# Test for primality by checking all number up to sqrt(n)
+# with 6K +- 1 optimisation
+is_prime = function(n) {
+    if (n <= 3) {
+        return(n > 1)
+    } else if ((n %% 2 == 0) || (n %% 3 == 0)) {
+        return(FALSE)
+    }
+
+    i = 5
+    while (i * i <= n) {
+        if ((n %% i == 0) || (n %% (i + 2) == 0)) {
+            return(FALSE)
+        }
+        i = i + 6
+    }
+    return(TRUE)
+}
+
+# Get the nth prime number
+get_prime = function(n) {
+    primes = 0
+    i = 0
+    while (primes < n) {
+        i = i + 1
+        if (is_prime(i)) {
+            primes = primes + 1
+
+        }
+
+    }
+    return(i)
+}
