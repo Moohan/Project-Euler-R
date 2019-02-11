@@ -92,14 +92,20 @@ get_prime = function(n) {
 }
 
 # For problem 4
+split_num = function(n) {
+    digits = integer(nchar(n))
+    i = nchar(n)
+    while (n > 0) {
+        digits[i] = n %% 10
+        n = n %/% 10
+        i = i - 1
+    }
+    return(digits)
+}
 
 is_palindrome = function(n) {
-    digits = integer()
+    digits = split_num(n)
 
-    while (n > 0) {
-        digits = c(digits, n %% 10)
-        n = n %/% 10
-    }
     return(all(digits == rev(digits)))
 }
 
