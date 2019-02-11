@@ -122,3 +122,13 @@ sum_of_squares = function(nums) {
 square_of_sum = function(nums) {
     return(sum(nums)^2)
 }
+
+# For problem 9
+
+pythagorian_triple = function(a, b, c) {
+    if ((a < b) && (b < c)) {
+        return((a ^ 2 + b ^ 2) == c ^ 2)
+    } else {
+        return(FALSE)
+    }
+}
