@@ -100,5 +100,19 @@ is_palindrome = function(n) {
         digits = c(digits, n %% 10)
         n = n %/% 10
     }
-    return (all(digits == rev(digits)))
+    return(all(digits == rev(digits)))
+}
+
+# For problem 6
+
+sum_of_squares = function(nums) {
+    sum = 0
+    for (i in nums) {
+        sum = sum + i^2
+    }
+    return(sum)
+}
+
+square_of_sum = function(nums) {
+    return(sum(nums)^2)
 }
