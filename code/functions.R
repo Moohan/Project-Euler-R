@@ -90,3 +90,15 @@ get_prime = function(n) {
     }
     return(i)
 }
+
+# For problem 4
+
+is_palindrome = function(n) {
+    digits = integer()
+
+    while (n > 0) {
+        digits = c(digits, n %% 10)
+        n = n %/% 10
+    }
+    return (all(digits == rev(digits)))
+}
